@@ -15,11 +15,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import java.util.*;
+
 @RestController
 @RequestMapping("EasyMyTrip")
 public class AirportController {
-    @Autowired
-    AirportService airportService;
+  //  @Autowired
+   // AirportService airportService;
+    AirportService airportService = new AirportService();
     @PostMapping("/add_airport")
     public String addAirport(@RequestBody Airport airport){
 
@@ -111,7 +114,8 @@ public class AirportController {
     public String addFlight(@RequestBody Flight flight){
 
         //Return a "SUCCESS" message string after adding a flight.
-       return airportService.addFlight(flight);
+        airportService.addFlight(flight);
+        return "SUCCESS";
     }
 
 
@@ -141,9 +145,11 @@ public class AirportController {
     public String addPassenger(@RequestBody Passenger passenger){
 
         //Add a passenger to the database
-        //And return a "SUCCESS" message if the passenger has been added successfully.
+        //And return a  message if the passenger has been added successfully.
 
-       return airportService.addPassenger(passenger);
+       airportService.addPassenger(passenger);
+
+        return "SUCCESS";
     }
 
 

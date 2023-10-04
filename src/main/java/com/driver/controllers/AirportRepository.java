@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+//@Repository
 public class AirportRepository {
     HashMap<String, Airport> airportHashMap = new HashMap<>();
     HashMap<Integer, Flight> flightHashMap = new HashMap<>();
@@ -152,11 +152,9 @@ public class AirportRepository {
         return count;
     }
 
-    public String addFlight(Flight flight) {
+    public void addFlight(Flight flight) {
         //Return a "SUCCESS" message string after adding a flight.
-
         flightHashMap.put(flight.getFlightId(),flight);
-        return "SUCCESS";
 
       }
 
@@ -193,10 +191,10 @@ public class AirportRepository {
       return 0;
     }
 
-    public String addPassenger(Passenger passenger) {
+    public void addPassenger(Passenger passenger) {
         //Add a passenger to the database
         //And return a "SUCCESS" message if the passenger has been added successfully.
         passengerHashMap.put(passenger.getPassengerId(),passenger);
-        return "SUCCESS";
+
     }
 }

@@ -6,15 +6,17 @@ import com.driver.model.Flight;
 import com.driver.model.Passenger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 
+import java.util.*;
 
-@Service
+
+//@Service
 public class AirportService {
 
-    @Autowired
-    AirportRepository airportRepository;
+    AirportRepository airportRepository = new AirportRepository();
 
     public void addAirport(Airport airport) {
         airportRepository.addAirport(airport);
@@ -48,8 +50,8 @@ public class AirportService {
         return airportRepository.countOfBookingsDoneByPassengerAllCombined(passengerId);
     }
 
-    public String addFlight(Flight flight) {
-        return airportRepository.addFlight(flight);
+    public void addFlight(@RequestBody Flight flight) {
+         airportRepository.addFlight(flight);
     }
 
     public String getAirportNameFromFlightId(Integer flightId) {
@@ -60,7 +62,7 @@ public class AirportService {
         return airportRepository.calculateRevenueOfAFlight(flightId);
     }
 
-    public String addPassenger(Passenger passenger) {
-        return airportRepository.addPassenger(passenger);
+    public void addPassenger(Passenger passenger) {
+         airportRepository.addPassenger(passenger);
     }
 }
