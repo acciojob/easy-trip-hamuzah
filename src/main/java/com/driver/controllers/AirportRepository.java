@@ -27,14 +27,14 @@ public class AirportRepository {
         int cnt = 0;
         //Largest airport is in terms of terminals
         for(Airport airport: airportHashMap.values()){
-            if(cnt >= airport.getNoOfTerminals()){
+            if(airport.getNoOfTerminals() >= cnt ){
                 cnt = airport.getNoOfTerminals();
             }
         }
         // Incase a tie return the Lexicographically smallest airportName
         List<String> list = new ArrayList<>();
         for(Airport airport: airportHashMap.values()){
-            if (cnt == airport.getNoOfTerminals()){
+            if (airport.getNoOfTerminals() == cnt){
                 list.add(airport.getAirportName());
             }
         }
