@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("easymytrip")
+@RequestMapping("EasyMyTrip")
 public class AirportController {
     @Autowired
     AirportService airportService;
